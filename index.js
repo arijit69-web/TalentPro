@@ -104,6 +104,10 @@ app.post('/upload-resume', async (req, res) => {
   }
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'Server is Running', timestamp: new Date().toISOString() });
+});
+
 app.post('/query', async (req, res) => {
   try {
     const { messages } = req.body;
