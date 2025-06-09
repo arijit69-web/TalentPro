@@ -174,7 +174,8 @@ QUESTION: ${latestMessage}
     });
 
     const reply = chatResponse.choices[0].message.content;
-    res.json({ response: reply });
+    const cleanReply = reply.replace(/\n/g, ' '); 
+    res.json({ response: cleanReply });
   } catch (error) {
     console.error("Error querying ATS bot:", error);
     res.status(500).json({ error: "Internal server error" });
