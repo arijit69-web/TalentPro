@@ -17,6 +17,7 @@ const {
   ASTRA_DB_APPLICATION_TOKEN,
   OPENAI_API_KEY,
   PORT = 3001,
+  GITHUB_TOKEN
 } = process.env;
 
 const app = express();
@@ -60,7 +61,15 @@ app.post('/upload-resume', async (req, res) => {
       return res.status(400).json({ error: 'Resume file, name, role, and GitHub username are required.' });
     }
 
-    const reposResponse = await axios.get(`https://api.github.com/users/${githubUsername}/repos?per_page=100`);
+    const reposResponse = await axios.get(
+      `https://api.github.com/users/${githubUsername}/repos?per_page=100`,
+      {
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          Accept: 'application/vnd.github+json',
+        },
+      }
+    );
     const repos = reposResponse.data;
 
     const languagesSet = new Set();
@@ -174,7 +183,7 @@ QUESTION: ${latestMessage}
     });
 
     const reply = chatResponse.choices[0].message.content;
-    const cleanReply = reply.replace(/\n/g, ' '); 
+    const cleanReply = reply.replace(/\n/g, ' ');
     res.json({ response: cleanReply });
   } catch (error) {
     console.error("Error querying ATS bot:", error);
