@@ -162,7 +162,7 @@ Evaluation Criteria:
 6. Gaps or Areas to Improve: What's missing or can be improved to better fit the job.
 7. Final Recommendation: Should this candidate move forward to the next stage? Justify your decision clearly.
 
-Be objective and informative — provide feedback that would help both a recruiter and the candidate. Use a professional and structured format.
+Be objective and informative — provide feedback and employee name, email and phone number that would help both a recruiter and the candidate. Use a professional and structured format.
 
 ----------
 START CONTEXT
