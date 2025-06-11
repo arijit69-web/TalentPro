@@ -161,7 +161,8 @@ Evaluation Criteria:
 5. Strengths: Key highlights that make the resume strong for this role.
 6. Gaps or Areas to Improve: What's missing or can be improved to better fit the job.
 7. Final Recommendation: Should this candidate move forward to the next stage? Justify your decision clearly.
-
+8. IMPORTANT: Must Give Candidate Name, Email, and Phone Number.
+9. Note : If there is no candidate data matching the job description, return "No candidate data found matching the job description."
 Be objective and informative — provide feedback and employee name, email and phone number that would help both a recruiter and the candidate. Use a professional and structured format.
 
 ----------
