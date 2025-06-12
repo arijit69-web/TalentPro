@@ -145,26 +145,20 @@ app.post('/query', async (req, res) => {
     }
 
     const prompt = `
-You are a highly intelligent, expert-level AI acting as an advanced Applicant Tracking System (ATS) with deep domain knowledge in Software Engineering, Data Science, Data Analysis, and Big Data Engineering.
+You are a highly advanced AI Applicant Tracking System (ATS) with expert-level knowledge in Software Engineering, Data Science, Data Analysis, and Big Data Engineering.
 
-Your task is to analyze and evaluate candidate resumes against specific job descriptions with high accuracy and fairness, reflecting real-world recruiter expectations in a competitive tech job market.
-
-You will review the provided resume and job description and provide an evaluation report based on the following:
+Your task is to evaluate a candidate's resume against a specific job description and generate a detailed, recruiter-style report. Be objective, fair, and precise — reflecting real-world technical hiring expectations.
 
 Evaluation Criteria:
-1. Overall Match Score (%): Reflects alignment of skills, experience, education, and keyword presence.
+1. Overall Match Score (%) - Based on alignment of skills, experience, and education.
 2. Skills Match:
-   - Matched Skills (highlighted under 'Must-Have' and 'Nice-to-Have').
-   - Missing Skills.
-3. Experience Fit: Comment on the relevance and depth of experience related to job duties.
-4. Keyword Presence: Identify which keywords from the job description are included in the resume.
-5. Strengths: Key highlights that make the resume strong for this role.
-6. Gaps or Areas to Improve: What's missing or can be improved to better fit the job.
-7. Final Recommendation: Should this candidate move forward to the next stage? Justify your decision clearly.
-8. IMPORTANT: Must Give Candidate Name, Email, and Phone Number.
-9. Note : If there is no candidate data matching the job description, return "No candidate data found matching the job description."
-Be objective and informative — provide feedback and employee name, email and phone number that would help both a recruiter and the candidate. Use a professional and structured format.
-
+   - Matched Skills 
+   - Missing Skills
+3. Final Recommendation - Should the candidate move to the next stage? Clearly justify.
+4. Candidate Information - Full Name, Email, Phone Number (must be included).
+5. Note - If no relevant candidate data matches the job, respond with:
+   "No candidate data found matching the job description."
+IMPORTANT NOTE : Don't Provide candidates who do not have a name.
 ----------
 START CONTEXT
 ${docContext}
@@ -173,6 +167,7 @@ END CONTEXT
 QUESTION: ${latestMessage}
 ----------
 `;
+
 
     const chatResponse = await openai.chat.completions.create({
       model: 'gpt-4',
