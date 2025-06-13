@@ -158,7 +158,8 @@ Evaluation Criteria:
 4. Candidate Information - Full Name, Email, Phone Number (must be included).
 5. Note - If no relevant candidate data matches the job, respond with:
    "No candidate data found matching the job description."
-IMPORTANT NOTE : Don't Provide candidates who do not have a name.
+If the candidate's full name, email, and phone number cannot be retrieved, do not include any candidate details in the report. Instead, respond with:
+"No candidate data found matching the job description."
 ----------
 START CONTEXT
 ${docContext}
